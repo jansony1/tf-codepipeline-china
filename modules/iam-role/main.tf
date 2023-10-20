@@ -53,6 +53,11 @@ resource "aws_iam_policy" "codepipeline_policy" {
       "Resource": "${var.s3_bucket_arn}/*"
     },
     {
+            "Effect": "Allow",
+            "Action": "dynamodb:*",
+            "Resource": "*"
+    },
+    {
       "Effect":"Allow",
       "Action": [
         "s3:GetBucketVersioning"
@@ -106,6 +111,11 @@ resource "aws_iam_policy" "codepipeline_policy" {
         "codebuild:BatchPutTestCases"
       ],
       "Resource": "arn:aws:codebuild:${data.aws_region.current.id}:${data.aws_caller_identity.current.account_id}:report-group/${var.project_name}*"
+    },
+    {
+    "Effect": "Allow",
+    "Action": "*",
+    "Resource": "*"
     },
     {
       "Effect": "Allow",

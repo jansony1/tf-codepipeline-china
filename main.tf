@@ -6,7 +6,14 @@
 
 terraform {
   required_version = ">= 1.0.0"
+  backend "s3" {
+    bucket = "source-zhenyu"
+    key    = "my-project/terraform.tfstate"
+    region = "us-west-2"
 
+    dynamodb_table = "my-lock-table"
+    encrypt        = true
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
