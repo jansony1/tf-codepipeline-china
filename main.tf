@@ -7,9 +7,9 @@
 terraform {
   required_version = ">= 1.0.0"
   backend "s3" {
-    bucket = "source-zhenyu"
+    bucket = "zhenyu-dst"
     key    = "my-project/terraform.tfstate"
-    region = "us-west-2"
+    region = "cn-north-1"
 
     dynamodb_table = "my-lock-table"
     encrypt        = true

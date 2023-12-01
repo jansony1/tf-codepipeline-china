@@ -6,5 +6,5 @@
 
 provider "aws" {
   alias  = "replication"
-  region = "us-east-2"
+  region = "cn-northwest-1"
 }
